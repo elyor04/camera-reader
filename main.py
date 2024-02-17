@@ -1,7 +1,7 @@
 import cv2
-from HKIPcamera import HKIPcamera
+from HKIPcamera import VideoCapture
 
-cam = HKIPcamera()
+cam = VideoCapture()
 cam.open("192.168.11.250", "admin", "abcd1234")
 
 while True:

@@ -1,10 +1,4 @@
-from ctypes import (
-    Structure,
-    c_ubyte,
-    c_int,
-    c_uint,
-    c_char_p,
-)
+from ctypes import *
 from platform import system, architecture
 from os.path import join, dirname
 from re import findall
@@ -97,3 +91,9 @@ class FRAME_INFO(Structure):
         ("nFrameRate", LONG),
         ("dwFrameNum", DWORD),
     ]
+
+
+fDecCBFun = FUNCTYPE(
+    None, c_int, POINTER(c_char), c_int, POINTER(FRAME_INFO), c_void_p, c_int
+)
+fRealDataCallBack = FUNCTYPE(None, LONG, DWORD, POINTER(BYTE), DWORD, c_void_p)
